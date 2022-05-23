@@ -5,19 +5,24 @@
       <h2 class="feature-title fw-bold mt-3">{{ feature.title }}</h2>
 
       <p>{{ feature.original_title }}</p>
-      <div>
-        {{ feature.original_language }} 
-        {{ feature.vote_average }} &star;
+      <div :iso="feature.original_language">
+        <FlagIcons :languageCode="feature.original_language" />
       </div>
+      <div> {{ feature.vote_average }} &star; </div>
     </div>
   </div>
 </template>
 
 <script>
+import FlagIcons from "./FlagIcons.vue";
+
 export default {
   name: "MovieCard",
   props: {
     feature: Object,
+  },
+  components: {
+    FlagIcons,
   },
 };
 </script>
