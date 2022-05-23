@@ -6,18 +6,20 @@
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue'
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppMain,
-  }
+  },
 }
 </script>
 
 <style lang="scss">
+@import "./style/variables.scss";
+@import "./style/common.scss";
 
 </style>
