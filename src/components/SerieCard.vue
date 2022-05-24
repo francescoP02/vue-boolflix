@@ -1,14 +1,14 @@
 <template>
   <div class="col">
     <div class="feature-card p-2 text-center">
-      <img class="img-fluid" alt="" />
+      <img class="img-fluid" :src="`https://image.tmdb.org/t/p/w342${feature.poster_path}`" />
 
       <h2 class="feature-title fw-bold mt-3">{{ feature.name }}</h2>
       <p>{{ feature.original_name }}</p>
       <div>
         <FlagIcons :languageCode="feature.original_language" />
+        <div> {{ feature.vote_average }} &star; </div>
       </div>
-      <div> {{ feature.vote_average }} &star; </div>
 
     </div>
   </div>
