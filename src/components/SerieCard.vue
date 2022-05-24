@@ -2,13 +2,14 @@
   <div class="col">
     <div class="feature-card p-2 text-center">
       <img class="img-fluid" alt="" />
-      
-      <h2 class="feature-title fw-bold mt-3">{{ feature.title }}</h2>
-      <p>{{ feature.original_title }}</p>
+
+      <h2 class="feature-title fw-bold mt-3">{{ feature.name }}</h2>
+      <p>{{ feature.original_name }}</p>
       <div>
         <FlagIcons :languageCode="feature.original_language" />
       </div>
       <div> {{ feature.vote_average }} &star; </div>
+
     </div>
   </div>
 </template>
@@ -17,7 +18,7 @@
 import FlagIcons from "./FlagIcons.vue";
 
 export default {
-  name: "MovieCard",
+  name: "SerieCard",
   props: {
     feature: Object,
   },
