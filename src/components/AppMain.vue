@@ -5,7 +5,7 @@
     <h2 class="text-center col-12 py-2">Film</h2>
     <div class="row row-cols-2 row-cols-md-4 g-2">
       <MovieCard
-        v-for="(item, index) in movieList"
+        v-for="(item, index) in moviesList"
         :key="index"
         :feature="item"
       />
@@ -13,7 +13,7 @@
     <h2 class="text-center col-12 py-2">Serie TV</h2>
     <div class="row row-cols-2 row-cols-md-4 g-2">
       <SerieCard
-        v-for="(item, index) in seriesList"
+        v-for="(item, index) in serieList"
         :key="index"
         :feature="item"
       />
@@ -76,7 +76,26 @@ export default {
         });
     },
   },
-  computed: {},
+  computed: {
+    moviesList: function () {
+      const sortedFeatures = this.movieList;
+      sortedFeatures.forEach((element) => {
+        element.vote_average = "&starf;".repeat(
+          Math.ceil(element.vote_average / 2)
+        );
+      });
+      return sortedFeatures;
+    },
+    serieList: function () {
+      const sortedFeatures = this.seriesList;
+      sortedFeatures.forEach((element) => {
+        element.vote_average = "&starf;".repeat(
+          Math.ceil(element.vote_average / 2)
+        );
+      });
+      return sortedFeatures;
+    },
+  },
   created() {},
 };
 </script>

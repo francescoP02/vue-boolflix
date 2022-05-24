@@ -7,7 +7,10 @@
       <p>{{ feature.original_name }}</p>
       <div>
         <FlagIcons :languageCode="feature.original_language" />
-        <div> {{ feature.vote_average }} &star; </div>
+        <span
+          v-if="feature.vote_average"
+          v-html="feature.vote_average"
+        ></span>
       </div>
 
     </div>
