@@ -1,7 +1,6 @@
 <template>
-  <AppLoading v-if="loading" />
-  <div v-else class="container">
-    <AppFilter @clickedSearch="performSearch($event)" />
+<main>
+  <div class="container">
     <h2 class="text-center col-12 py-2">Film</h2>
     <div class="row row-cols-2 row-cols-md-4 g-2">
       <MovieCard
@@ -19,82 +18,26 @@
       />
     </div>
   </div>
+</main>
 </template>
 
 <script>
 import MovieCard from "./MovieCard.vue";
 import SerieCard from "./SerieCard.vue";
-import AppLoading from "./AppLoading.vue";
-import AppFilter from "./AppFilter.vue";
-import axios from "axios";
 
 export default {
   name: "AppMain",
   components: {
     MovieCard,
-    AppLoading,
-    AppFilter,
     SerieCard,
+},
+    props: {
+    moviesList: Object,
+    serieList: Object,
   },
   data() {
     return {
-      movieList: [],
-      seriesList: [],
-      loading: false,
-      filter: {
-        genre: "",
-        artist: "",
-      },
     };
-  },
-  methods: {
-    performSearch(searchTerm) {
-      this.loading = true;
-      const params = {
-            api_key: "ada2d065ca5348c690e937f411db9e54",
-            lang: "en-US",
-            page: 1,
-            query: searchTerm,
-      };
-
-      axios
-        .get("https://api.themoviedb.org/3/search/movie", { params })
-        .then((resp) => {
-          this.movieList = resp.data.results;
-          setTimeout(() => {
-            this.loading = false;
-          }, 600);
-        });
-
-        axios
-        .get("https://api.themoviedb.org/3/search/tv", { params } )
-        .then((resp) => {
-          this.seriesList = resp.data.results;
-          setTimeout(() => {
-            this.loading = false;
-          }, 600);
-        });
-    },
-  },
-  computed: {
-    moviesList: function () {
-      const sortedFeatures = this.movieList;
-      sortedFeatures.forEach((element) => {
-        element.vote_average = "&starf;".repeat(
-          Math.ceil(element.vote_average / 2)
-        );
-      });
-      return sortedFeatures;
-    },
-    serieList: function () {
-      const sortedFeatures = this.seriesList;
-      sortedFeatures.forEach((element) => {
-        element.vote_average = "&starf;".repeat(
-          Math.ceil(element.vote_average / 2)
-        );
-      });
-      return sortedFeatures;
-    },
   },
   created() {},
 };
@@ -104,4 +47,8 @@ export default {
 @import "../style/variables.scss";
 @import "../style/common.scss";
 
+main {
+  background-color: $m-background;
+  min-height: calc(100vh - 60px);
+}
 </style>
