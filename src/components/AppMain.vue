@@ -2,19 +2,21 @@
 <main>
   <div class="container">
     <h2 class="text-center col-12 py-2">Film</h2>
-    <div class="row row-cols-2 row-cols-md-4 g-2">
+    <div class="row row-cols-2 row-cols-md-5 g-2">
       <MovieCard
         v-for="(item, index) in moviesList"
         :key="index"
         :feature="item"
+        class="ms-card"
       />
     </div>
     <h2 class="text-center col-12 py-2">Serie TV</h2>
-    <div class="row row-cols-2 row-cols-md-4 g-2">
+    <div class="row row-cols-2 row-cols-md-5 g-2">
       <SerieCard
         v-for="(item, index) in serieList"
         :key="index"
         :feature="item"
+        class="ms-card"
       />
     </div>
   </div>
@@ -50,5 +52,12 @@ export default {
 main {
   background-color: $m-background;
   min-height: calc(100vh - 60px);
+  div {
+    color: white;
+    text-transform: uppercase;
+  }
+  .ms-card {
+    height: 100%;
+  }
 }
 </style>

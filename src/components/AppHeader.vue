@@ -1,7 +1,7 @@
 <template>
 
   <header class="d-flex">
-    <h1>Boolflix</h1>
+    <img src="../assets/fraflix.png" alt="">
     <div>
       <div class="d-flex py-2">
         <input
