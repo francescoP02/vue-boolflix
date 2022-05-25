@@ -11,10 +11,7 @@
         <li v-if="feature.original_name != feature.name" >{{ feature.original_name }}</li>
         <li><FlagIcons :languageCode="feature.original_language" /></li>
         <li>        
-          <span
-          v-if="feature.vote_average"
-          v-html="feature.vote_average"
-          ></span>
+          <span class="ms-star"><i v-for="n in 5" :key="n" class="fa-star" :class="n <= filledStars ? 'fas' : 'far'"></i></span>
         </li>
         <li class="ms-overview">{{feature.overview}}</li>
       </ul>
@@ -34,12 +31,18 @@ export default {
   components: {
     FlagIcons,
   },
+  computed: {
+    filledStars() {
+      return Math.ceil(this.feature.vote_average / 2);
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../style/variables.scss";
 @import "../style/common.scss";
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 .ms-noimg {
   width: 342px;

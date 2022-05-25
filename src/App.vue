@@ -50,11 +50,11 @@ export default {
           setTimeout(() => {
             this.loading = false;
           }, 1000);
-          this.movieList.forEach((element) => {
-          element.vote_average = "&starf;".repeat(
-          Math.ceil(element.vote_average / 2)
-          );
-          });
+          // this.movieList.forEach((element) => {
+          // element.vote_average = "&starf;".repeat(
+          // Math.ceil(element.vote_average / 2)
+          // );
+          // });
         });
       axios
         .get("https://api.themoviedb.org/3/search/tv", { params } )
@@ -63,11 +63,11 @@ export default {
           setTimeout(() => {
             this.loading = false;
           }, 1000);
-          this.seriesList.forEach((element) => {
-          element.vote_average = "&starf;".repeat(
-          Math.ceil(element.vote_average / 2)
-          );
-          });
+          // this.seriesList.forEach((element) => {
+          // element.vote_average = "&starf;".repeat(
+          // Math.ceil(element.vote_average / 2)
+          // );
+          // });
         });
     },
   },

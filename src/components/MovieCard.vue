@@ -12,10 +12,7 @@
         <li  v-if="feature.original_title != feature.title" >{{ feature.original_title }}</li>
         <li><FlagIcons :languageCode="feature.original_language" /></li>
         <li>        
-          <span
-          v-if="feature.vote_average"
-          v-html="feature.vote_average"
-          ></span>
+          <span class="ms-star"><i v-for="n in 5" :key="n" class="fa-star" :class="n <= filledStars ? 'fas' : 'far'"></i></span>
         </li>
         <li class="ms-overview">{{feature.overview}}</li>
       </ul>
@@ -35,6 +32,12 @@ export default {
   components: {
     FlagIcons,
   },
+
+  computed: {
+    filledStars() {
+      return Math.ceil(this.feature.vote_average / 2);
+    }
+  }
 };
 </script>
 
