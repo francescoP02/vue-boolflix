@@ -2,13 +2,14 @@
   <div class="col">
 
     <div class="img-card" :class="{ 'no-image': feature.poster_path === null }">
-      <img class="img-fluid" :src="`https://image.tmdb.org/t/p/w342${feature.poster_path}`" />
+      <img v-if="feature.poster_path != null " class="img-fluid" :src="`https://image.tmdb.org/t/p/w342${feature.poster_path}`" />
+      <img v-else class="ms-noimg img-fluid" src="../assets/default_image_01.png" alt="">
     </div>
 
     <div class="feature-card p-2 text-center">
       <ul>
         <li>{{ feature.title }}</li>
-        <li>{{ feature.original_title }}</li>
+        <li  v-if="feature.original_title != feature.title" >{{ feature.original_title }}</li>
         <li><FlagIcons :languageCode="feature.original_language" /></li>
         <li>        
           <span
@@ -40,6 +41,11 @@ export default {
 <style lang="scss" scoped>
 @import "../style/variables.scss";
 @import "../style/common.scss";
+
+.ms-noimg {
+  width: 342px;
+  height: auto;
+}
 
 .feature-card {
   .ms-overview {
