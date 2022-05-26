@@ -97,7 +97,9 @@ export default {
       color: white;
 
       .ms-star {
+
         color: yellow;
+        
       }
     }
   }
