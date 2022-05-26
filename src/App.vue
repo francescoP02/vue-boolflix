@@ -15,7 +15,6 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppLoading from "./components/AppLoading.vue";
 import axios from "axios";
-
 export default {
   name: 'App',
   components: {
@@ -64,7 +63,6 @@ export default {
           // );
           // });
         });
-
       axios
         .get("https://api.themoviedb.org/3/search/tv", { params } )
         .then((resp) => {
@@ -97,5 +95,4 @@ export default {
 <style lang="scss">
 @import "./style/variables.scss";
 @import "./style/common.scss";
-
 </style>

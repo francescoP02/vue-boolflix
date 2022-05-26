@@ -4,8 +4,7 @@
     <div class="card">
       <div class="img-card" :class="{ 'no-image': feature.poster_path === null }">
         <img v-if="feature.poster_path != null " class="img-fluid" :src="`https://image.tmdb.org/t/p/w342${feature.poster_path}`" />
-        <!-- <img v-else class="ms-noimg img-fluid" src="../assets/default_image_01.png" alt=""> -->
-        <div v-else class="ms-noimg"></div>
+        <img v-else class="ms-noimg img-fluid" src="../assets/default_image_01.png" alt="">
       </div>
 
       <div class="feature-card p-2 ">
@@ -66,10 +65,6 @@ export default {
 
     .ms-noimg {
     height: 100%;
-    background-image: url(../assets/default_image_01.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     }
   }
 
@@ -96,7 +91,7 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgba(black, 0.8);
+      background-color: black;
       width: 100%;
       height: 100%;
       color: white;

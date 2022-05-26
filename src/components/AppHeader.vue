@@ -39,18 +39,15 @@ export default {
 <style lang="scss" scoped>
 @import "../style/variables.scss";
 @import "../style/common.scss";
-
 header {
   background-color: $h-background;
   height: 60px;
   flex-direction: row;
   justify-content: space-around;
-
   h1 {
     color: red;
     text-transform: uppercase;
     align-items: center;
   }
-
 }
 </style>

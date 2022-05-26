@@ -48,10 +48,12 @@ export default {
 main {
   background-color: $m-background;
   min-height: calc(100vh - 60px);
+
   div {
     color: white;
     text-transform: uppercase;
   }
+  
   .ms-card {
     height: 100%;
   }
