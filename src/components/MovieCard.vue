@@ -63,6 +63,10 @@ export default {
     position: relative;
     min-height: 100%;
 
+    img {
+      height: 100%;
+    }
+
     .ms-noimg {
     height: 100%;
     }
@@ -97,9 +101,8 @@ export default {
       color: white;
 
       .ms-star {
-
-        color: yellow;
         
+        color: yellow;
       }
     }
   }

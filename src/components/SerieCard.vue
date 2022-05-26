@@ -61,6 +61,10 @@ export default {
     position: relative;
     min-height: 100%;
 
+    img {
+      height: 100%;
+    }
+
     .ms-noimg {
     height: 100%;
     }

@@ -55,7 +55,7 @@ main {
   }
   
   .ms-card {
-    height: 100%;
+    height: 360px;
   }
 }
 </style>
