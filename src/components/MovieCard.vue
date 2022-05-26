@@ -17,6 +17,14 @@
             <span class="ms-star"><i v-for="n in 5" :key="n" class="fa-star" :class="n <= filledStars ? 'fas' : 'far'"></i></span>
           </li>
           <li class="ms-overview">{{feature.overview}}</li>
+          <li>
+            <ul class="ms-cast">
+              <li>Cast:</li>
+              <li v-for="(actor, index) in feature.cast" :key="index">
+                {{ actor.name }}
+              </li>
+            </ul>
+          </li>
         </ul>
 
       </div>
@@ -75,6 +83,10 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
 
+    }
+
+    .ms-cast {
+      font-size: .8rem;
     }
   }
 

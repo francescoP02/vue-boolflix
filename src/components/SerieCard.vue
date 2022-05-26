@@ -10,13 +10,21 @@
 
       <div class="feature-card p-2 ">
         <ul>
-          <li>{{ feature.name }}</li>
-          <li  v-if="feature.original_name != feature.name" >{{ feature.original_name }}</li>
+          <li>{{ feature.title }}</li>
+          <li  v-if="feature.original_title != feature.title" >{{ feature.original_title }}</li>
           <li><FlagIcons :languageCode="feature.original_language" /></li>
           <li>        
             <span class="ms-star"><i v-for="n in 5" :key="n" class="fa-star" :class="n <= filledStars ? 'fas' : 'far'"></i></span>
           </li>
           <li class="ms-overview">{{feature.overview}}</li>
+          <li>
+            <ul class="ms-cast">
+              <li>Cast:</li>
+              <li v-for="(actor, index) in feature.cast" :key="index">
+                {{ actor.name }}
+              </li>
+            </ul>
+          </li>
         </ul>
 
       </div>
@@ -27,9 +35,8 @@
 
 <script>
 import FlagIcons from "./FlagIcons.vue";
-
 export default {
-  name: "SerieCard",
+  name: "MovieCard",
   props: {
     feature: Object,
   },
@@ -47,15 +54,11 @@ export default {
 <style lang="scss" scoped>
 @import "../style/variables.scss";
 @import "../style/common.scss";
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-
 .card {
   height: 100%;
-
   .img-card {
     position: relative;
     min-height: 100%;
-
     .ms-noimg {
     height: 100%;
     background-image: url(../assets/default_image_01.png);
@@ -64,31 +67,29 @@ export default {
     background-position: center;
     }
   }
-
   .feature-card {
   display: none;
-
     .ms-overview {
-
       height: 100px;
       white-space: wrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
+    }
+    .ms-cast {
+      font-size: .8rem;
     }
   }
-
   &:hover {
     .feature-card {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgba(black, 0.8);
+      background-color: black;
       width: 100%;
       height: 100%;
+      
       color: white;
-
       .ms-star {
         color: yellow;
       }

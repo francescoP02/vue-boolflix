@@ -37,10 +37,6 @@ export default {
     moviesList: Object,
     serieList: Object,
   },
-  data() {
-    return {
-    };
-  },
   created() {},
 };
 </script>

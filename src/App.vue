@@ -47,6 +47,14 @@ export default {
         .get("https://api.themoviedb.org/3/search/movie", { params })
         .then((resp) => {
           this.movieList = resp.data.results;
+          this.movieList.forEach(item => {
+            axios
+              .get(`https://api.themoviedb.org/3/movie/${item.id}/credits`, {params} )
+              .then((resp) => {
+                item.cast = resp.data.cast.splice(0, 5);
+                this.movieList.push(item);
+              });
+          });
           setTimeout(() => {
             this.loading = false;
           }, 1000);
@@ -56,10 +64,19 @@ export default {
           // );
           // });
         });
+
       axios
         .get("https://api.themoviedb.org/3/search/tv", { params } )
         .then((resp) => {
           this.seriesList = resp.data.results;
+          this.seriesList.forEach(item => {
+            axios
+              .get(`https://api.themoviedb.org/3/movie/${item.id}/credits`, {params} )
+              .then((resp) => {
+                item.cast = resp.data.cast.splice(0, 5);
+                this.seriesList.push(item);
+              });
+          });
           setTimeout(() => {
             this.loading = false;
           }, 1000);
